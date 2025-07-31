@@ -1,0 +1,20 @@
+# File: /home/com2u/src/OrganAIzer/hasura/metadata/databases/default/tables/tables.yaml
+# Purpose: Hasura table configuration for all OrganAIzer tables
+
+- "!include public_type.yaml"
+- "!include public_status.yaml"
+- "!include public_labels.yaml"
+- "!include public_relation.yaml"
+- "!include public_permissiongroup.yaml"
+- "!include public_permissiongroupmembership.yaml"
+- "!include public_entry.yaml"
+- "!include public_entrylabels.yaml"
+- "!include public_entrypermissions.yaml"
+- "!include public_entryrelations.yaml"
+- "!include public_voting.yaml"
+- "!include public_entryuserrelation.yaml"
+- "!include public_assembly.yaml"
+- "!include public_assemblyinclude.yaml"
+- "!include public_assemblyexclude.yaml"
+- "!include public_assemblyfilter.yaml"
+- "!include public_assemblyconfig.yaml"

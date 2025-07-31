@@ -1,0 +1,52 @@
+table:
+  name: assembly
+  schema: public
+array_relationships:
+  - name: assemblyincludes
+    using:
+      foreign_key_constraint_on:
+        column: assemblyid
+        table:
+          name: assemblyinclude
+          schema: public
+  - name: assemblyexcludes
+    using:
+      foreign_key_constraint_on:
+        column: assemblyid
+        table:
+          name: assemblyexclude
+          schema: public
+  - name: assemblyfilters
+    using:
+      foreign_key_constraint_on:
+        column: assemblyid
+        table:
+          name: assemblyfilter
+          schema: public
+  - name: assemblyconfigs
+    using:
+      foreign_key_constraint_on:
+        column: assemblyid
+        table:
+          name: assemblyconfig
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns: [id, name, description, owner, sortorder, isdefault]
+select_permissions:
+  - role: user
+    permission:
+      columns: [id, name, description, owner, createdat, updatedat, sortorder, isdefault]
+      filter: {}
+update_permissions:
+  - role: user
+    permission:
+      columns: [name, description, sortorder, isdefault]
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

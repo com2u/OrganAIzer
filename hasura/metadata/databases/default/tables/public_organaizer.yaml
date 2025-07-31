@@ -1,0 +1,78 @@
+# File: /home/com2u/src/OrganAIzer/hasura/metadata/databases/default/tables/public_organaizer.yaml
+# Purpose: Hasura configuration for the organaizer table with GraphQL schema and permissions
+
+table:
+  name: organaizer
+  schema: public
+
+# Define object relationships (if any)
+object_relationships: []
+
+# Define array relationships (if any)
+array_relationships: []
+
+# Insert permissions
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - title
+        - description
+        - status
+        - priority
+        - category
+        - due_date
+        - created_by
+        - assigned_to
+        - tags
+        - metadata
+
+# Select permissions
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - title
+        - description
+        - status
+        - priority
+        - category
+        - due_date
+        - created_at
+        - updated_at
+        - created_by
+        - assigned_to
+        - tags
+        - metadata
+      filter: {}
+
+# Update permissions
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - title
+        - description
+        - status
+        - priority
+        - category
+        - due_date
+        - assigned_to
+        - tags
+        - metadata
+      filter: {}
+      check: {}
+
+# Delete permissions
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}
+
+# Event triggers (optional)
+event_triggers: []
+
+# Computed fields (optional)
+computed_fields: []

@@ -1,0 +1,24 @@
+table:
+  name: entrylabels
+  schema: public
+object_relationships:
+  - name: entry
+    using:
+      foreign_key_constraint_on: entrykey
+  - name: labels
+    using:
+      foreign_key_constraint_on: label
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns: [entrykey, label]
+select_permissions:
+  - role: user
+    permission:
+      columns: [entrykey, label]
+      filter: {}
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

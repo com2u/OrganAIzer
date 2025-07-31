@@ -1,0 +1,227 @@
+/* File: /home/com2u/src/OrganAIzer/frontend/src/index.css */
+/* Purpose: Global styles and Tailwind CSS imports for OrganAIzer Frontend */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables for OrganAIzer Design System */
+:root {
+  --pastel-blue: #A0C4FF;
+  --pastel-purple: #BDB2FF;
+  --pastel-pink: #FFC6FF;
+  --pastel-red: #FFADAD;
+  --pastel-orange: #FFD6A5;
+  --pastel-yellow: #FDFFB6;
+  --pastel-green: #CAFFBF;
+  --pastel-cyan: #9BF6FF;
+}
+
+/* Base styles */
+@layer base {
+  body {
+    @apply font-mono bg-white text-black;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Card component with pastel gradients */
+  .card {
+    @apply border-2 border-black rounded-lg p-6 shadow-card transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-card-hover hover:-translate-y-1 hover:scale-105;
+  }
+  
+  /* Button variants */
+  .btn-primary {
+    @apply bg-gradient-to-r from-pastel-blue to-pastel-purple text-black font-bold py-3 px-6 rounded-lg border-2 border-black transform hover:scale-105 transition-all duration-300 shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-gradient-to-r from-gray-200 to-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg border-2 border-black transform hover:scale-105 transition-all duration-300 shadow-lg;
+  }
+  
+  .btn-danger {
+    @apply bg-gradient-to-r from-pastel-red to-pastel-pink text-black font-bold py-3 px-6 rounded-lg border-2 border-black transform hover:scale-105 transition-all duration-300 shadow-lg;
+  }
+  
+  .btn-success {
+    @apply bg-gradient-to-r from-pastel-green to-pastel-cyan text-black font-bold py-3 px-6 rounded-lg border-2 border-black transform hover:scale-105 transition-all duration-300 shadow-lg;
+  }
+  
+  /* Input styles */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-black rounded-lg font-mono focus:outline-none focus:border-pastel-blue transition-colors duration-200;
+  }
+  
+  .textarea-field {
+    @apply w-full px-4 py-3 border-2 border-black rounded-lg font-mono focus:outline-none focus:border-pastel-blue transition-colors duration-200;
+    resize: vertical;
+  }
+  
+  /* Select styles */
+  .select-field {
+    @apply w-full px-4 py-3 border-2 border-black rounded-lg font-mono bg-white focus:outline-none focus:border-pastel-blue transition-colors duration-200;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border-2 border-black;
+  }
+  
+  .badge-blue {
+    @apply badge bg-pastel-blue;
+  }
+  
+  .badge-purple {
+    @apply badge bg-pastel-purple;
+  }
+  
+  .badge-pink {
+    @apply badge bg-pastel-pink;
+  }
+  
+  .badge-red {
+    @apply badge bg-pastel-red;
+  }
+  
+  .badge-orange {
+    @apply badge bg-pastel-orange;
+  }
+  
+  .badge-yellow {
+    @apply badge bg-pastel-yellow;
+  }
+  
+  .badge-green {
+    @apply badge bg-pastel-green;
+  }
+  
+  .badge-cyan {
+    @apply badge bg-pastel-cyan;
+  }
+  
+  /* Section backgrounds */
+  .section-gradient-blue {
+    @apply bg-gradient-to-r from-pastel-blue/20 to-pastel-purple/20;
+  }
+  
+  .section-gradient-pink {
+    @apply bg-gradient-to-r from-pastel-pink/20 to-pastel-red/20;
+  }
+  
+  .section-gradient-green {
+    @apply bg-gradient-to-r from-pastel-green/20 to-pastel-cyan/20;
+  }
+  
+  .section-gradient-orange {
+    @apply bg-gradient-to-r from-pastel-orange/20 to-pastel-yellow/20;
+  }
+  
+  /* Header and navigation */
+  .header {
+    @apply bg-white border-b-2 border-black;
+  }
+  
+  .footer {
+    @apply bg-white border-t-2 border-black;
+  }
+  
+  /* Table styles */
+  .table-container {
+    @apply border-2 border-black rounded-lg overflow-hidden;
+  }
+  
+  .table-header {
+    @apply bg-gray-100 border-b-2 border-black font-bold;
+  }
+  
+  .table-row {
+    @apply border-b border-black hover:bg-gray-50 transition-colors duration-200;
+  }
+  
+  .table-cell {
+    @apply px-4 py-3 font-mono;
+  }
+  
+  /* Modal styles */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+  }
+  
+  .modal-content {
+    @apply bg-white border-2 border-black rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto;
+  }
+  
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full h-8 w-8 border-4 border-black border-t-transparent;
+  }
+  
+  /* Drag and drop styles */
+  .drag-handle {
+    @apply cursor-move text-gray-500 hover:text-black transition-colors duration-200;
+  }
+  
+  .dragging {
+    @apply opacity-50;
+  }
+  
+  .drop-zone {
+    @apply border-2 border-dashed border-pastel-blue rounded-lg p-4 text-center;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #1a1a1a;
+    --text-primary: #ffffff;
+    --border-color: #404040;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-600;
+}

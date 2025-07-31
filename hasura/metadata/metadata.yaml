@@ -1,0 +1,111 @@
+# File: /home/com2u/src/OrganAIzer/hasura/metadata/metadata.yaml
+# Purpose: Main Hasura metadata configuration for the organaizer application
+
+version: 3
+sources:
+  - name: default
+    kind: postgres
+    tables:
+      - table:
+          name: organaizer
+          schema: public
+        insert_permissions:
+          - role: user
+            permission:
+              check: {}
+              columns:
+                - title
+                - description
+                - status
+                - priority
+                - category
+                - due_date
+                - created_by
+                - assigned_to
+                - tags
+                - metadata
+        select_permissions:
+          - role: user
+            permission:
+              columns:
+                - id
+                - title
+                - description
+                - status
+                - priority
+                - category
+                - due_date
+                - created_at
+                - updated_at
+                - created_by
+                - assigned_to
+                - tags
+                - metadata
+              filter: {}
+        update_permissions:
+          - role: user
+            permission:
+              columns:
+                - title
+                - description
+                - status
+                - priority
+                - category
+                - due_date
+                - assigned_to
+                - tags
+                - metadata
+              filter: {}
+              check: {}
+        delete_permissions:
+          - role: user
+            permission:
+              filter: {}
+    configuration:
+      connection_info:
+        database_url:
+          from_env: HASURA_GRAPHQL_DATABASE_URL
+        isolation_level: read-committed
+        pool_settings:
+          connection_lifetime: 600
+          idle_timeout: 180
+          max_connections: 50
+          retries: 1
+        use_prepared_statements: true
+
+# Actions configuration (optional)
+actions: []
+
+# Custom types (optional)
+custom_types:
+  input_objects: []
+  objects: []
+  scalars: []
+  enums: []
+
+# Remote schemas (optional)
+remote_schemas: []
+
+# Query collections (optional)
+query_collections: []
+
+# Allowlist (optional)
+allowlist: []
+
+# Cron triggers (optional)
+cron_triggers: []
+
+# REST endpoints (optional)
+rest_endpoints: []
+
+# API limits (optional)
+api_limits: {}
+
+# Metrics configuration (optional)
+metrics_config: {}
+
+# Inherited roles (optional)
+inherited_roles: []
+
+# Backend configs (optional)
+backend_configs: {}

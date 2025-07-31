@@ -1,0 +1,52 @@
+# File: /home/com2u/src/OrganAIzer/hasura/metadata/databases/default/tables/public_type.yaml
+# Purpose: Hasura configuration for the Type table
+
+table:
+  name: type
+  schema: public
+
+# Array relationships
+array_relationships:
+  - name: entries
+    using:
+      foreign_key_constraint_on:
+        column: type
+        table:
+          name: entry
+          schema: public
+
+# Insert permissions
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - type
+        - description
+        - icon
+
+# Select permissions
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - type
+        - description
+        - icon
+      filter: {}
+
+# Update permissions
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - description
+        - icon
+      filter: {}
+      check: {}
+
+# Delete permissions
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

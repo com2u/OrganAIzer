@@ -1,0 +1,104 @@
+# File: /home/com2u/src/OrganAIzer/hasura/metadata/databases/default/tables/public_entry.yaml
+# Purpose: Hasura configuration for the Entry table
+
+table:
+  name: entry
+  schema: public
+
+# Object relationships
+object_relationships:
+  - name: type
+    using:
+      foreign_key_constraint_on: type
+  - name: status
+    using:
+      foreign_key_constraint_on: status
+
+# Array relationships
+array_relationships:
+  - name: entrylabels
+    using:
+      foreign_key_constraint_on:
+        column: entrykey
+        table:
+          name: entrylabels
+          schema: public
+  - name: entryrelations_entrykeya
+    using:
+      foreign_key_constraint_on:
+        column: entrykeya
+        table:
+          name: entryrelations
+          schema: public
+  - name: entryrelations_entrykeyb
+    using:
+      foreign_key_constraint_on:
+        column: entrykeyb
+        table:
+          name: entryrelations
+          schema: public
+  - name: voting
+    using:
+      foreign_key_constraint_on:
+        column: entrykey
+        table:
+          name: voting
+          schema: public
+
+# Insert permissions
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - key
+        - datetime
+        - title
+        - content
+        - type
+        - status
+        - stars
+        - rank
+        - createdby
+        - updatedby
+
+# Select permissions
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - key
+        - datetime
+        - title
+        - content
+        - type
+        - status
+        - stars
+        - rank
+        - createdat
+        - updatedat
+        - createdby
+        - updatedby
+      filter: {}
+
+# Update permissions
+update_permissions:
+  - role: user
+    permission:
+      columns:
+        - datetime
+        - title
+        - content
+        - type
+        - status
+        - stars
+        - rank
+        - updatedby
+      filter: {}
+      check: {}
+
+# Delete permissions
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}

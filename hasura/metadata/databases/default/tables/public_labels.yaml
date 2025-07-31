@@ -1,0 +1,31 @@
+table:
+  name: labels
+  schema: public
+array_relationships:
+  - name: entrylabels
+    using:
+      foreign_key_constraint_on:
+        column: label
+        table:
+          name: entrylabels
+          schema: public
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns: [label, description, color, icon]
+select_permissions:
+  - role: user
+    permission:
+      columns: [label, description, color, icon]
+      filter: {}
+update_permissions:
+  - role: user
+    permission:
+      columns: [description, color, icon]
+      filter: {}
+      check: {}
+delete_permissions:
+  - role: user
+    permission:
+      filter: {}
