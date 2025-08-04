@@ -229,7 +229,19 @@ docker-compose exec hasura hasura migrate apply
    ./scripts/clean.sh && ./scripts/start.sh
    ```
 
-3. **Authentication Issues**:
+3. **NPM Build Issues**:
+   ```bash
+   # If you get "npm ci can only install with existing package-lock.json" error:
+   # Ensure package-lock.json files exist in both backend/ and frontend/ directories
+   # The Dockerfiles use npm ci --omit=dev for faster, reliable builds
+   
+   # Clean and rebuild if needed
+   docker-compose down
+   docker-compose build --no-cache
+   docker-compose up -d
+   ```
+
+4. **Authentication Issues**:
    - Verify Azure AD configuration
    - Check redirect URI matches
    - Ensure client secret is valid
