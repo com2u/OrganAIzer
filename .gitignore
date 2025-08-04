@@ -15,7 +15,6 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json
 yarn.lock
 
 # Logs
@@ -89,7 +88,9 @@ dist
 
 # Gatsby files
 .cache/
-public
+# Note: For React apps, keep frontend/public/ tracked in git
+# Only ignore Gatsby's generated public folder if using Gatsby
+# public
 
 # Storybook build outputs
 .out
