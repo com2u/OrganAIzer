@@ -232,16 +232,31 @@ docker-compose exec hasura hasura migrate apply
 3. **NPM Build Issues**:
    ```bash
    # If you get "npm ci can only install with existing package-lock.json" error:
-   # Ensure package-lock.json files exist in both backend/ and frontend/ directories
-   # The Dockerfiles use npm ci --omit=dev for faster, reliable builds
+   # This usually means package-lock.json files are missing or ignored by git
    
-   # Clean and rebuild if needed
+   # Check if files exist
+   ls -la backend/package-lock.json frontend/package-lock.json
+   
+   # If missing, generate them
+   cd backend && npm install && cd ../frontend && npm install && cd ..
+   
+   # Clean and rebuild Docker images
    docker-compose down
    docker-compose build --no-cache
    docker-compose up -d
    ```
 
-4. **Authentication Issues**:
+4. **Missing Frontend Public Folder**:
+   ```bash
+   # If frontend fails to build due to missing public folder:
+   # Ensure frontend/public/ directory is tracked in git
+   git status frontend/public/
+   
+   # If not tracked, check .gitignore for overly broad 'public' rules
+   # The frontend/public/ folder contains essential React static assets
+   ```
+
+5. **Authentication Issues**:
    - Verify Azure AD configuration
    - Check redirect URI matches
    - Ensure client secret is valid
