@@ -77,7 +77,7 @@ app.use(helmet({
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       scriptSrc: ["'self'"],
       imgSrc: ["'self'", "data:", "https:"],
-      connectSrc: ["'self'", "https://login.microsoftonline.com", "http://localhost:8080"]
+      connectSrc: ["'self'", "https://login.microsoftonline.com", "http://localhost:8081"]
     }
   },
   crossOriginEmbedderPolicy: false

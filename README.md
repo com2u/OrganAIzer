@@ -76,7 +76,7 @@ docker-compose up -d
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:3001
-- **Hasura Console**: http://localhost:8080
+- **Hasura Console**: http://localhost:8081/console
 - **PostgreSQL**: localhost:5432
 
 ## 🏗️ Architecture
